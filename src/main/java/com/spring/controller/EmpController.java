@@ -14,13 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.model.Employee;
 import com.spring.service.EmpService;
+import com.spring.service.EmpServiceImpl;
 
 import lombok.Setter;
 
 @Controller
 public class EmpController {
 	@Autowired
-	private EmpService ee;
+	private EmpService empserv;
 	/*public static void main(String[] args) throws SQLException {
 		ConfigurableApplicationContext app = new ClassPathXmlApplicationContext("springconfig.xml");
 		EmpService empser = (EmpService) app.getBean("ee");
@@ -45,7 +46,8 @@ public class EmpController {
 		e1.setSalary(Double.parseDouble(salary));
 		/*ConfigurableApplicationContext app = new ClassPathXmlApplicationContext("springconfig.xml");
 		EmpService empser = (EmpService) app.getBean("ee");*/
-		int i = ee.saveEmp(e1);
+		int i = empserv.saveEmp(e1);
+		/*int i=1;*/
 		System.out.println(i+" Inserted..");
 		ModelAndView mav = null;
 		return mav = i!=0 ? new ModelAndView("success") : new ModelAndView("failure");

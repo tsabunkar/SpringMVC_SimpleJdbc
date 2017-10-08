@@ -7,6 +7,7 @@
    http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+
 <bean id="bds" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
 <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 <property name="url" value="jdbc:mysql://localhost:3306/mysqldb"></property>
@@ -18,11 +19,15 @@
 </bean>
 
 <bean id="dao" class="com.spring.dao.EmpDAOImpl">
-<property name="ds" ref="bds"></property>  <!-- DataSurce ds value is injected by this setter injection -->
+<!-- <property name="ds" ref="bds"></property>  --> <!-- DataSurce ds value is injected by this setter injection -->
 </bean>
 
 <bean id="ee" class="com.spring.service.EmpServiceImpl">
-<property name="edao" ref="dao"></property> <!-- StudentDao dao1 is injected by this setter injection -->
+<!-- <property name="edao" ref="dao"></property> --> <!-- StudentDao dao1 is injected by this setter injection -->
 </bean>
+
+<!-- <bean class="com.spring.controller.EmpController">
+<property name="empserv" ref="ee"></property>
+</bean> -->
 
 </beans>

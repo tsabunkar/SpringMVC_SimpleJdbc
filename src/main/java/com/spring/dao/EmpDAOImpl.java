@@ -14,7 +14,7 @@ import com.spring.model.Employee;
 
 import lombok.Setter;
 
-@Repository
+
 public class EmpDAOImpl implements EmpDAO{
 	@Autowired
 	private DataSource ds;//remember import from javax.sql package

@@ -12,7 +12,7 @@ import com.spring.dao.EmpDAO;
 import com.spring.model.Employee;
 
 import lombok.Setter;
-@Component
+
 public class EmpServiceImpl implements EmpService{
 	@Autowired
 	private EmpDAO edao;
