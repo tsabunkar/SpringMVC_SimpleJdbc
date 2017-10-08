@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
@@ -15,7 +16,7 @@ import lombok.Setter;
 
 @Repository
 public class EmpDAOImpl implements EmpDAO{
-	@Setter
+	@Autowired
 	private DataSource ds;//remember import from javax.sql package
 
 	public int addEmp(Employee e) throws SQLException {
