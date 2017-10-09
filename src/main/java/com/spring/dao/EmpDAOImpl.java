@@ -1,6 +1,7 @@
 package com.spring.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -16,10 +17,12 @@ import lombok.Setter;
 
 
 public class EmpDAOImpl implements EmpDAO{
-	@Autowired
-	private DataSource ds;//remember import from javax.sql package
+	@Setter
+	private DataSource ds;//remember import from javax.sql package (or) org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 
+	
 	public int addEmp(Employee e) throws SQLException {
+		System.out.println("Employee dao Impl start .....");
 		Connection con = ds.getConnection();
 		String sql = "insert into employee_table values(?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -28,6 +31,7 @@ public class EmpDAOImpl implements EmpDAO{
 		ps.setDouble(3, e.getSalary());
 		int i = ps.executeUpdate();
 		con.close();
+		System.out.println("Employee dao Impl finish.....");
 		return i;
 	}
 

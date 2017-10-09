@@ -9,16 +9,19 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.spring.dao.EmpDAO;
+import com.spring.dao.EmpDAOImpl;
 import com.spring.model.Employee;
 
 import lombok.Setter;
-
+@Service
 public class EmpServiceImpl implements EmpService{
 	@Autowired
-	private EmpDAO edao;
+	private EmpDAOImpl edao;
 	
 	public int saveEmp(Employee e) throws SQLException {
+		System.out.println("EmpService Implem start...");
 		return edao.addEmp(e);
+		
 	}
 
 }
