@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -19,12 +20,14 @@ import com.spring.service.EmpService;
 import com.spring.service.EmpServiceImpl;
 
 import lombok.Setter;
+import lombok.val;
 
-@Controller
+@Controller(value="contr")
 public class EmpController {
 	@Autowired
-	private EmpServiceImpl empserv;
-	
+	@Qualifier(value="servimp")
+	private EmpService empserv;
+	/*
 	public static void main(String[] args) throws SQLException {
 		ConfigurableApplicationContext app = new ClassPathXmlApplicationContext("springconfig.xml");
 		EmpService empser = (EmpService) app.getBean("ee");
@@ -35,9 +38,9 @@ public class EmpController {
 		int i = empser.saveEmp(e1);
 		System.out.println(i);
 		//DriverManagerDataSource
-	}
+	}*/
 	
-		/*@RequestMapping(value="/addemp.htm")
+		@RequestMapping(value="/addemp.htm")
 	public ModelAndView m1(HttpServletRequest req,HttpServletResponse resp) throws SQLException {
 		String eid = req.getParameter("id");
 		String ename = req.getParameter("name");
@@ -54,7 +57,7 @@ public class EmpController {
 		System.out.println(i+" Inserted..");
 		ModelAndView mav = null;
 		return mav = i!=0 ? new ModelAndView("success") : new ModelAndView("failure");
-	}*/
+	}
 	
 	
 }

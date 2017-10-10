@@ -8,16 +8,19 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 
 import com.spring.model.Employee;
 
 import lombok.Setter;
+import lombok.val;
 
-
+@Repository(value="daoimp")
 public class EmpDAOImpl implements EmpDAO{
-	@Setter
+	@Autowired
+	@Qualifier(value="bds")
 	private DataSource ds;//remember import from javax.sql package (or) org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 
 	
